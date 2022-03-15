@@ -7,7 +7,6 @@ const Profile = new Schema({
   birthDay: Number,
   birthYear: Number,
   gender: String,
-  radical: Number,
   lifePath: Number,
   zodiacSign: String,
   email: String,

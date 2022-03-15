@@ -1,7 +1,6 @@
 const express = require('express');
 const getSign = require('horoscope').getSign;
 const lifePathNumber = require('../lifePath.js');
-const radicalNum = require('../radicalNum.js');
 const router = express.Router();
 const ProfileCollection = require('../models/ProfileSchema.js');
 
@@ -19,12 +18,10 @@ router.post("/", (req, res) => {
     (bodyData.birthYear + bodyData.birthMonth + bodyData.birthDay).toString()
   );
 
-  const radical = radicalNum(
-    (bodyData.birthMonth + bodyData.birthDay).toString()
-  );
 
 
-  const newProfile = { ...bodyData, zodiacSign, lifePath, radical };
+
+  const newProfile = { ...bodyData, zodiacSign, lifePath };
   
 
   ProfileCollection.create(newProfile, (err, results) => {
